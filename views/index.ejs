@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <title>Call Logs Dashboard</title>
+    <style>
+        th {
+            cursor: pointer; /* Change the cursor to indicate sorting */
+            position: relative; /* For positioning arrows */
+        }
+        .sort-arrow {
+            margin-left: 5px;
+            font-size: 1.2em; /* Make arrows larger */
+            display: none; /* Hide arrows by default */
+        }
+        .asc .up-arrow {
+            display: inline; /* Show up arrow for ascending order */
+        }
+        .desc .down-arrow {
+            display: inline; /* Show down arrow for descending order */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Call Logs Dashboard</h1>
+        <div class="mb-3 row">
+            <div class="col-md-3">
+                <label for="rowCount" class="form-label">Rows per page:</label>
+                <select id="rowCount" class="form-select">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="callTypeFilter" class="form-label">Call Type:</label>
+                <select id="callTypeFilter" class="form-select">
+                    <option value="all">All</option>
+                    <option value="incoming">Incoming</option>
+                    <option value="outgoing">Outgoing</option>
+                </select>
+            </div>
+            
+            
+        </div>
+        <div class="d-flex justify-content-start mb-3">
+            <button class="btn btn-secondary me-2" id="sortByEmployee">Sort by Employee</button>
+            <button class="btn btn-secondary me-2" id="sortByCallType">Sort by Call Type</button>
+            
+        </div>
+
+        <table id="call-logs-table" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th data-sort="emp_code">Employee Code <span class="sort-arrow up-arrow">↑</span><span class="sort-arrow down-arrow">↓</span></th>
+                    <th data-sort="employee_name">Employee Name <span class="sort-arrow up-arrow">↑</span><span class="sort-arrow down-arrow">↓</span></th>
+                    <th data-sort="call_type">Call Type <span class="sort-arrow up-arrow">↑</span><span class="sort-arrow down-arrow">↓</span></th>
+                    <th data-sort="duration">Duration <span class="sort-arrow up-arrow">↑</span><span class="sort-arrow down-arrow">↓</span></th>
+                    <th data-sort="missed_calls">Missed Calls <span class="sort-arrow up-arrow">↑</span><span class="sort-arrow down-arrow">↓</span></th>
+                    <th data-sort="connected_calls">Connected Calls <span class="sort-arrow up-arrow">↑</span><span class="sort-arrow down-arrow">↓</span></th>
+                    <th data-sort="call_status">Call Status <span class="sort-arrow up-arrow">↑</span><span class="sort-arrow down-arrow">↓</span></th>
+                    <th data-sort="region">Region <span class="sort-arrow up-arrow">↑</span><span class="sort-arrow down-arrow">↓</span></th>
+                    <th data-sort="customer_feedback">Customer Feedback <span class="sort-arrow up-arrow">↑</span><span class="sort-arrow down-arrow">↓</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be dynamically loaded here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> <!-- jQuery -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
